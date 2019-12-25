@@ -1,0 +1,23 @@
+.navigation-container{
+    height: 100;
+    margin: 15px;
+    background:white;
+    border-radius: 10px;
+    min-height: 700px;
+    border-radius: 10px !important;
+    margin: 20px 0px !important;
+}
+.navigation-container .li{
+    padding-left: 0px !important;
+}
+.navigation-container .nav-link{
+    text-decoration: unset;
+    margin-right: 10px;
+    min-width: 150px;
+    padding:4px 5px 4px 15px !important;
+    border-left: 3px solid white;
+}
+.navigation-container .nav-link:hover, .navigation-container .nav-link.active{
+    border-left: 3px solid red;
+    
+}

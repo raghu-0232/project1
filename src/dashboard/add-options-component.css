@@ -1,0 +1,8 @@
+.add-options-container{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.add-options-container li{
+    min-width: 300px;
+}

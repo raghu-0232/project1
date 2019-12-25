@@ -1,0 +1,10 @@
+.employee-view-header-container .each-section div{
+    margin: 10px 20px;
+    width: 350px;
+}
+.employee-view-header-container.column-3{
+    width: 65%;
+}
+.employee-view-header-container .column-2{
+    margin: 0px 10px;
+}

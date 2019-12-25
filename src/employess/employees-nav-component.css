@@ -1,0 +1,16 @@
+
+.employee-nav-links .nav-link{
+    text-decoration: unset;
+    margin-right: 10px;
+    padding:4px 2px 8px 2px !important;
+    border-bottom: 3px solid white;
+}
+.employee-nav-links .nav-link:hover, .employee-nav-links .nav-link.active{
+    border-bottom: 3px solid red;
+    
+}
+.employees-navigation-container{
+    margin: 20px;
+    padding: 5px;
+    border-radius: 10px !important;
+}

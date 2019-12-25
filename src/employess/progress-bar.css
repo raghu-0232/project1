@@ -1,0 +1,16 @@
+.dot{
+    height: 15px;
+    width : 15px;
+    border : #000 solid 1px;
+    border-radius : 50%;
+    display : inline-block;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+.divider  {
+    margin-bottom: 2px;
+    display : inline-block;
+    border-bottom: grey solid 1px;
+    width:100px;
+}

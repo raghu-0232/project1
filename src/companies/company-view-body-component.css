@@ -1,0 +1,10 @@
+.company-view-body-container{
+    background: #EDF0F5;
+}
+.company-view-body-container .each-section{
+    padding: 10px;
+}
+.company-view-body-container .each-section-name{
+    width: 300px;
+    margin-left: 150px;
+}

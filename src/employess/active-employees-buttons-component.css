@@ -1,0 +1,19 @@
+.empoyee-buttons{
+    justify-content: right;  
+    margin: 10px 0px
+}
+.empoyee-buttons button{
+    margin:4px 15px;
+    font-size: 10px;
+    height: 30px;
+     background: #ED3B41
+}
+.active-employees-buttons-container{
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.section-title{
+    vertical-align: bottom;
+    padding-right: 20px;
+    padding-left: 15px;
+}

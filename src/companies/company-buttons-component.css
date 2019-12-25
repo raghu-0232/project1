@@ -1,0 +1,19 @@
+.company-buttons{
+    justify-content: right; 
+    margin-top: 10px; 
+}
+.company-buttons button{
+    margin:4px 15px;
+}
+.company-buttons-container{
+    justify-content: space-between;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.company-buttons button {
+    margin: 4px 15px;
+    font-size: 10px;
+    height: 30px;
+    background: #ED3B41;
+}
