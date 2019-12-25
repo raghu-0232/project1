@@ -20,12 +20,12 @@ export default function EmployeesNavComponent(props) {
                         <ListItem><Link to={'/employees/inactiveemployess'} className="nav-link">Inactive Employees</Link></ListItem>
                     </Box>
                 </List>
-                <Switch>
-                    <Route path='/employees'  component={ActiveEmployessComponent} />
+                
+                    {/* <Route eact path='/'  component={ActiveEmployessComponent} /> */}
                     <Route path='/employees/activeemployees' component={ActiveEmployessComponent} />
                     <Route path='/employees/awaitingapprovals' component={AwaitingApprovalsComponent} />
                     <Route path='/employees/inactiveemployess' component={InactiveEmployessComponent} />
-                </Switch>
+               
                     
             </div>
             </Router>
