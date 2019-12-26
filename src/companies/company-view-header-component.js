@@ -25,24 +25,17 @@ export default function CompanyViewHeaderComponent(props) {
                     <div className="column-3">
                         <div>
                             <Box display="flex" justifyContent="space-between">
-                                
-                                    {getSection("Email Address", props.data.email)}
-                                    {getSection("Phone number", props.data.phone)}
-                                    {getSection("Location", props.data.location)}
-                                
+                                {getSection("Email Address", props.data.email)}
+                                {getSection("Phone number", props.data.phone)}
+                                {getSection("Location", props.data.location)}
                             </Box>
                         </div>
                         <div>
                             <Box display="flex" justifyContent="space-between">
-                            {getSection("Gender",props.data.gender)}
-                            {getSection("SSN", props.data.ssn_number)}
-                            {getSection("Date of Joining", props.data.date_of_joining)}
-                    
+                            {getSection("Title",props.data.gender)}
                             </Box>
                         </div>
                     </div>
-                    
-                   
                </Box>
 
             </Paper>

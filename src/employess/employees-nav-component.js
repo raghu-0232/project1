@@ -25,7 +25,6 @@ export default function EmployeesNavComponent(props) {
                     <Route path='/employees/activeemployees' component={ActiveEmployessComponent} />
                     <Route path='/employees/awaitingapprovals' component={AwaitingApprovalsComponent} />
                     <Route path='/employees/inactiveemployess' component={InactiveEmployessComponent} />
-               
                     
             </div>
             </Router>

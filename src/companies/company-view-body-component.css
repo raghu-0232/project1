@@ -1,5 +1,6 @@
 .company-view-body-container{
     background: #EDF0F5;
+    font-size: 11px;
 }
 .company-view-body-container .each-section{
     padding: 10px;
@@ -7,4 +8,25 @@
 .company-view-body-container .each-section-name{
     width: 300px;
     margin-left: 150px;
+}
+
+.role-sections {
+    color:#58666E
+}
+.role-each-section{
+    margin-left: 20px;
+}
+.role-each-section .each-section-value{
+    margin-left: -20px;
+}
+.company-view-actions{
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+    margin: 20px;
+    padding-bottom: 20px;
+}
+.company-view-actions-save{
+    background: #ED3B41 !important;
+    margin: 0px 20px !important;
 }
