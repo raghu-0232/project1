@@ -1,0 +1,12 @@
+
+ .completed-shifts-view-buttons-sec-2 button,  .completed-shifts-view-buttons-sec-1 button{
+    margin:4px 15px;
+    font-size: 10px;
+    height: 30px;
+    background: #FFFFFF;
+     color: black;
+}
+.completed-shifts-view-buttons-sec-2 button:hover,  .completed-shifts-view-buttons-sec-1 button:hover{
+    background: #FFFFFF;
+    color: black;
+}

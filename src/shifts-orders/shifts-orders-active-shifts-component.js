@@ -3,27 +3,28 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Paper from '@material-ui/core/Paper';
-// import ActiveEmployessButtonsComponent from './active-employees-buttons-component';
-// import EmployeeList from './employee-list';
-// import {ActiveEmployeeHeaders} from './table-headers/employees-headers';
-// import {data} from './table-headers/employees-headers';
+import ActiveShiftsButtonsComponent from './active-shifts-buttons-component';
+ import ShiftsOrdersTableComponent from './active-shifts-table-component';
+import {ActiveShiftsHeaders} from './table-headers/table-headers';
+ import {ActiveShiftsData} from './table-headers/table-headers';
+ import ShiftViewDialogue from './shift-view-dialogue-component';
 export default class  ActiveShiftsComponent extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            showEmployeeView: false,
-            selectedEmployee: null
+            showShiftVieww: false,
+            selectedRowData: null
         }
     }
-    viewEmployee = (params) =>{
-        this.setState({showEmployeeView: true, selectedEmployee: params})
+    viewShift = (params) =>{
+        this.setState({showShiftVieww: true, selectedShift: params})
     }
     onClose = () => {
-        this.setState({showEmployeeView: false, selectedEmployee: null})
+        this.setState({showShiftVieww: false, selectedShift: null})
     }
-    viewEmployeeHeader = { headerName: "View", 
+    viewHeader = { headerName: "View", 
                         cellRendererFramework: (params)=> {
-                            return <button onClick={ (e) => this.viewEmployee(params) }> view </button>
+                            return <button onClick={ (e) => this.viewShift(params) }> view </button>
                         },
                         minWidth:100,
                         width:100
@@ -32,10 +33,9 @@ export default class  ActiveShiftsComponent extends React.Component {
         return ( 
             <Paper className="active-employees-container">
                 <div>
-                    Active shifts data
-                    {/* <ActiveEmployessButtonsComponent />
-                    <EmployeeList tableHeaders={[...ActiveEmployeeHeaders, this.viewEmployeeHeader ]} rowData={data.response} viewHandler={this.viewEmployee}/>
-                    {this.state.showEmployeeView? <EmployeeViewDialogue data={this.state.selectedEmployee} onClose={this.onClose}/> : "" } */}
+                     <ActiveShiftsButtonsComponent />
+                    <ShiftsOrdersTableComponent tableHeaders={[...ActiveShiftsHeaders, this.viewHeader ]} rowData={ActiveShiftsData.response} viewHandler={this.viewShift}/>
+                     {this.state.showShiftVieww? <ShiftViewDialogue data={this.state.selectedRowData} onClose={this.onClose}/> : "" }  
                 </div>
             </Paper>
         )

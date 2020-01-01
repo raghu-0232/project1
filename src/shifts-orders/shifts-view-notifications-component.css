@@ -1,0 +1,13 @@
+.shifts-view-notifications-container{
+    margin: 30px 10px;
+}
+.shifts-view-notifications-container .each-notification {
+    border-radius: 0px;
+    min-height: 50px;
+    min-width: 250px;
+    max-width: 250px;
+    margin: 10px 50px 10px 5px;
+}
+.notifications-container{
+    flex-wrap: wrap;
+}

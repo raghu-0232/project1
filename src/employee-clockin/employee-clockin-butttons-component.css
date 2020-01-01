@@ -1,0 +1,21 @@
+.field-label{
+    margin: 20px 5px;
+    min-width: 100px;
+    display: inline-block;
+}
+.export-excel, .log-clockin {  
+    margin:4px 15px !important;
+    font-size: 12px !important;
+    height: 30px !important;
+    margin-top: 33px !important;
+    
+}
+.select-dropdown-conatainer{
+    min-width: 300px;
+}
+.flex-item {
+    min-width: 350px;
+}
+.flex-item .MuiFormControl-marginNormal{
+    margin-left: 25px;
+}

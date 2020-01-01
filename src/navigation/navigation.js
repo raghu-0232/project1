@@ -20,7 +20,7 @@ export default function Navigation() {
                     <ListItem><Link to={'/shiftsorders'} className="nav-link">Shifts/Orders</Link> <span> > </span></ListItem>
                     <ListItem><Link to={'/employees'} className="nav-link">Employees</Link> <span> > </span> </ListItem>
                     <ListItem><Link to={'/companies'} className="nav-link">Compinies</Link> <span> > </span></ListItem>
-                    <ListItem><Link to={'/clockin'} className="nav-link">Emp Clockin</Link> <span> > </span></ListItem>
+                    <ListItem><Link to={'/employeeclockin'} className="nav-link">Emp Clockin</Link> <span> > </span></ListItem>
                     <ListItem><Link to={'/employees'} className="nav-link">Reports</Link><span> > </span> </ListItem>
                 </List>
                 </Paper>

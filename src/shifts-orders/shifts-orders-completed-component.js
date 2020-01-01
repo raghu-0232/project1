@@ -7,38 +7,46 @@ import Paper from '@material-ui/core/Paper';
 // import EmployeeList from './employee-list';
 // import {ActiveEmployeeHeaders} from './table-headers/employees-headers';
 // import {data} from './table-headers/employees-headers';
+
+
+import CompletedShiftsButtonsComponent from './completed-shifts-buttons-component';
+import ShiftsOrdersTableComponent from './active-shifts-table-component';
+import {CompletedShiftsHeaders} from './table-headers/table-headers';
+import {CompletedShiftsData} from './table-headers/table-headers';
+import ShiftViewDialogue from './shift-view-dialogue-component';
+
+
 export default class  CompletedComponent extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            showEmployeeView: false,
-            selectedEmployee: null
+            showShiftVieww: false,
+            selectedRowData: null
         }
     }
-    viewEmployee = (params) =>{
-        this.setState({showEmployeeView: true, selectedEmployee: params})
+    viewShift = (params) =>{
+        this.setState({showShiftVieww: true, selectedShift: params})
     }
     onClose = () => {
-        this.setState({showEmployeeView: false, selectedEmployee: null})
+        this.setState({showShiftVieww: false, selectedShift: null})
     }
-    viewEmployeeHeader = { headerName: "View", 
+    viewHeader = { headerName: "View", 
                         cellRendererFramework: (params)=> {
-                            return <button onClick={ (e) => this.viewEmployee(params) }> view </button>
+                            return <button onClick={ (e) => this.viewShift(params) }> view </button>
                         },
                         minWidth:100,
                         width:100
                     }
     render() {
         return ( 
-            <Paper className="completed-container">
+            <Paper className="active-employees-container">
                 <div>
-                    Completed shifts data
-                    {/* <ActiveEmployessButtonsComponent />
-                    <EmployeeList tableHeaders={[...ActiveEmployeeHeaders, this.viewEmployeeHeader ]} rowData={data.response} viewHandler={this.viewEmployee}/>
-                    {this.state.showEmployeeView? <EmployeeViewDialogue data={this.state.selectedEmployee} onClose={this.onClose}/> : "" } */}
+                    <CompletedShiftsButtonsComponent />
+                    <ShiftsOrdersTableComponent tableHeaders={[...CompletedShiftsHeaders, this.viewHeader ]} rowData={CompletedShiftsData.response} viewHandler={this.viewShift}/>
+                    {this.state.showShiftVieww? <ShiftViewDialogue data={this.state.selectedRowData} type="completed-shift" onClose={this.onClose}/> : "" }  
                 </div>
             </Paper>
         )
 
-    }    
+    }  
 }

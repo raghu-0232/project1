@@ -4,7 +4,7 @@ import DashboardComponent from '../dashboard/dashboard-component';
 import ShiftsOrdersComponent from '../shifts-orders/shifts-orders.component'
 import EmployeesComponent from '../employess/employees-component';
 import CompaniesComponent from '../companies/companies-component';
-
+import EmployeeClockInComponent from '../employee-clockin/employee-clockin-component'
 
 import Paper from '@material-ui/core/Paper';
 
@@ -16,6 +16,7 @@ export default function MainRoutes() {
               <Route path='/shiftsorders' component={ShiftsOrdersComponent} />
               <Route path='/employees' component={EmployeesComponent} />
               <Route path='/companies' component={CompaniesComponent} />
+              <Route path='/employeeclockin' component={EmployeeClockInComponent} />
           </Switch>
        )
 }

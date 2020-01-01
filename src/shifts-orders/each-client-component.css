@@ -1,0 +1,21 @@
+.each-client-container{
+    padding: 20px;
+}
+.each-client-container:hover{
+    background: #F5F7FA;
+}
+.each-client-container label{
+   height : 20px;
+}
+.number-section{
+    margin: 10px;
+}
+.client-date-time-status{
+    margin-top: 20px;
+}
+.client-time{
+    margin: 10px;
+}
+.client-desc-section{
+    color:#BFBFBF
+}

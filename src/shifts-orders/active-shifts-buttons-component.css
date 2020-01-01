@@ -1,0 +1,46 @@
+.active-shifts-buttons{
+    justify-content: right;  
+    margin: 10px 0px
+}
+.other-controls .add-shift{
+    margin:4px 15px;
+    font-size: 10px;
+    height: 30px;
+     background: #ED3B41
+}
+.active-shifts-buttons-container{
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.section-title{
+    vertical-align: bottom;
+    padding-right: 20px;
+    padding-left: 15px;
+}
+.calender-controls .link-container a {
+    margin: 20px;
+    padding :10px; 
+    color: #ED3B41;
+    text-decoration: none;
+}
+.calender-controls .link-container a:hover {
+    
+    border-bottom: 2px solid  #ED3B41;
+    
+}
+.link-container{
+    margin-top: 37px;
+}
+.select-dropdown-conatainer{
+    margin:20px;
+    margin: 0px 26px !important;
+    min-width: 125px !important;
+}
+.search-field{
+    border-bottom: 1px solid;
+    margin-top: 15px;
+}
+.other-controls{
+    margin-top: 15px;
+}
+

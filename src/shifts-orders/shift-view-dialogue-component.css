@@ -1,0 +1,8 @@
+.dialogue-container .MuiToolbar-root.MuiToolbar-regular.MuiToolbar-gutters{
+    min-height: 20px;
+    height:20px;
+}
+.dialogue-container .MuiToolbar-root.MuiToolbar-regular.MuiToolbar-gutters .dialogue-close{
+    padding: 0px;
+    margin-top: 10px;
+}

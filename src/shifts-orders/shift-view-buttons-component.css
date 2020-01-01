@@ -1,0 +1,14 @@
+
+ .shifts-view-buttons-sec-2 button,  .shifts-view-buttons-sec-1 button{
+    margin:4px 15px;
+    font-size: 10px;
+    height: 30px;
+     background: #FFFFFF;
+     color: black;
+}
+.shifts-view-buttons-sec-2 button:hover,  .shifts-view-buttons-sec-1 button:hover{
+     color: white;
+}
+.shifts-view-buttons-sec-1 .shift-post-a-job-button{
+    background: #D8F1D8 !important;
+}
