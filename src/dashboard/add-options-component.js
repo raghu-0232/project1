@@ -1,5 +1,5 @@
 import React from 'react';
-import DashboardComponent from '../dashboard/dashboard-component';
+import DashboardComponent from './dashboard-component';
 import ShiftsOrdersComponent from '../shifts-orders/shifts-orders.component'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
