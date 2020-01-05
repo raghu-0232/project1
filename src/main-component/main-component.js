@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './main-component-styles.css';
 import Navigation from '../navigation/navigation';
 export default function MainComponent() {
-    return (<div className="main-content">
+    return (
+    <div className="main-content">
                 <Navigation/>
                 <MainRouts />
             </div>

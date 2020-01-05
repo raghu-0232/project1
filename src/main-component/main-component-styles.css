@@ -1,4 +1,7 @@
 .main-content{
-    display: flex;
+    /* display: flex; */
     background:#F5F7FA;
+    height: 95vh;
+    padding: 20px;
+    display: flex;
 }
