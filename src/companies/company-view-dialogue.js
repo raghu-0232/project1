@@ -26,8 +26,6 @@ export default function CompanyViewDialogue(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
 
-
-
   const handleClose = () => {
     setOpen(false);
     props.onClose();
@@ -41,7 +39,7 @@ export default function CompanyViewDialogue(props) {
               <CloseIcon />
             </IconButton>
           </Toolbar>
-        <CompanyViewComponent />
+        <CompanyViewComponent data={props.data}/>
       </Dialog>
     </div>
   );

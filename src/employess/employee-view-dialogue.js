@@ -31,8 +31,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function EmployeeViewDialogue(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-
-
+   
 
   const handleClose = () => {
     setOpen(false);
@@ -47,7 +46,7 @@ export default function EmployeeViewDialogue(props) {
               <CloseIcon />
             </IconButton>
           </Toolbar>
-        <EmployeeViewComponent />
+        <EmployeeViewComponent data={props.data}/>
       </Dialog>
     </div>
   );

@@ -41,7 +41,7 @@ export default function ShiftViewDialogue(props) {
               <CloseIcon />
             </IconButton>
           </Toolbar>
-        <ShiftViewComponent type={props.type} />
+        <ShiftViewComponent type={props.type} data={props.data}/>
       </Dialog>
     </div>
   );

@@ -13,6 +13,12 @@ export default function EmployeeViewHeaderComponent(props) {
                     <div className="each-section-value">{value}</div>
                 </div>)
     }
+   let email =  props.employeeData.email || "";
+   let phone =  props.employeeData.phone || "";
+   let location =  props.employeeData.location || "";
+   let gender =  props.employeeData.ssn_number || "";
+   let date_of_joining =  props.employeeData.date_of_joining || "";
+
     return( 
             <Paper className="employee-view-header-container">
                 <Box display="flex">

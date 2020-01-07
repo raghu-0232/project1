@@ -10,9 +10,6 @@ export default function ShiftsOrdersComponent(){
                     <span> Employees </span> 
                     <span> Dashboard > Employees</span>
                 </div>
-                
                 <ShiftsOrdersNavComponent />
-
-
             </div>)
  }

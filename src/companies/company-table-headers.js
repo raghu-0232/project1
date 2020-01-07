@@ -1,3 +1,5 @@
+
+
 export const  CompanyTableHeaders = [
     { headerName: "S.no",  minWidth:100, width:100,cellRenderer: (params)=> {
             return `<div>
@@ -10,12 +12,13 @@ export const  CompanyTableHeaders = [
     { headerName: "Location", minWidth:200, cellRenderer: (params)=> {
            
             if(params.data.address){
-                return `<div>
-                    <span>${params.data.location.title},</span>
-                    <span>${params.data.address.city},</span>
-                    <span>${params.data.address.country},</span>
-                    <span>${params.data.address.zipcode}</span>
-                </div>`
+                // return `<div>
+                //     <span>${params.data.location.title},</span>
+                //     <span>${params.data.address.city},</span>
+                //     <span>${params.data.address.country},</span>
+                //     <span>${params.data.address.zipcode}</span>
+                // </div>`
+                return `<div>${params.data.location}</div.`
             }
         }
 

@@ -17,10 +17,10 @@ export default class  ActiveShiftsComponent extends React.Component {
         }
     }
     viewShift = (params) =>{
-        this.setState({showShiftVieww: true, selectedShift: params})
+        this.setState({showShiftVieww: true, selectedRowData: params.data})
     }
     onClose = () => {
-        this.setState({showShiftVieww: false, selectedShift: null})
+        this.setState({showShiftVieww: false, selectedRowData: null})
     }
     viewHeader = { headerName: "View", 
                         cellRendererFramework: (params)=> {

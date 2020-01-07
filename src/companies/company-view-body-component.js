@@ -33,14 +33,21 @@ export default class CompanyViewBodyComponent extends React.Component {
                 </Box>
     }
     render(){
-        const data = this.props.data;
+        const data = this.props.data.response || {};
+        let business_name = data.business_name || "";
+        let business_category = data.business_category || "";
+        let city = data.city || ""
+        let state = data.state || ""
+        let phone = data.phone || ""
+
+
         return( 
                 <div className="company-view-body-container">
-                    {this.getSelection("Business Name:","")}
-                    {this.getSelection("Category of Business:", "adspicing edit")}
-                    {this.getSelection("City: ", "adspicing edit")}
-                    {this.getSelection("State:", "")}
-                    {this.getSelection("Business Phone:", "")}
+                    {this.getSelection("Business Name:", business_name)}
+                    {this.getSelection("Category of Business:", business_category)}
+                    {this.getSelection("City: ", city)}
+                    {this.getSelection("State:", state)}
+                    {this.getSelection("Business Phone:", phone)}
                     {/* {this.getSelection("Locations:", `${data.address.apartment_number},${data.address.street},${data.address.city},${data.address.zipcode},${data.address.country}`)} */}
                     
                     <Box display="flex" className="each-section role-sections">

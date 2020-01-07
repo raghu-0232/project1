@@ -17,7 +17,7 @@ export default class  ActiveEmployessComponent extends React.Component {
         }
     }
     viewEmployee = (params) =>{
-        this.setState({showEmployeeView: true, selectedEmployee: params})
+        this.setState({showEmployeeView: true, selectedEmployee: params.data})
     }
     onClose = () => {
         this.setState({showEmployeeView: false, selectedEmployee: null})

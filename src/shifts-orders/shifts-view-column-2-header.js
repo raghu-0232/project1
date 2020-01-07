@@ -9,6 +9,12 @@ export default class ShiftsViewColumn2HeaderComponent extends React.Component{
 
     }
     render(){
+      const  data = this.props.data;
+       const shift_id = data.shift_id || ""
+       const event_name = data.event_name || ""
+       const locations = data.locations || ""
+       const contact_name = data.contact_name || ""
+       const contact_phone = data.contact_phone || ""
     return( 
             <div className="shifts-view-column-2-header-container">
                 <div className="column-2-header-buttons"> 
@@ -25,19 +31,19 @@ export default class ShiftsViewColumn2HeaderComponent extends React.Component{
                  }
                 </div>
                 <div className="shift-id-and-more-details">
-                  <div className="shift-id"> Shift ID: ER000-20</div>
-                  <h3 className="shift-id">Client Annual Day Celebrations</h3>
+                  <div className="shift-id"> Shift ID: {shift_id }</div>
+                  <h3 className="shift-id">{event_name }</h3>
                 </div>
                 <Box display="flex" justifyContent="space-between">
                     <div>
-                        <div>Client Location: Illonous</div>
+                        <div>Client Location: {locations }</div>
                         <div>Road no: 456, Read cross road</div>
                         <div>Duratoin : 11/01/2019 - 15/10/2019</div>
                     </div>
                     <div>
                         <div> Superior Details</div>
-                        <div> Krisitana</div>
-                        <div> +9453454354354</div>
+                        <div> {contact_name }</div>
+                        <div> {contact_phone }</div>
 
                     </div>
                 </Box>

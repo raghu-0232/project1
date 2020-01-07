@@ -12,7 +12,17 @@ export default function CompanyViewHeaderComponent(props) {
                     <div className="each-section-value">{value}</div>
                 </div>)
     }
+    const data = props.data.response || {};
+
+    let business_name = data.business_name || "";
+    let business_category = data.business_category || "";
+    let email = data.email || ""
+    let location = data.location || ""
+    let phone = data.phone || ""
+    let title = data.title || ""
+
     return( 
+      
             <Paper className="company-view-header-container">
                 <Box display="flex">
                     <div className="column-2">
@@ -25,14 +35,14 @@ export default function CompanyViewHeaderComponent(props) {
                     <div className="column-3">
                         <div>
                             <Box display="flex" justifyContent="space-between">
-                                {getSection("Email Address", props.data.email)}
-                                {getSection("Phone number", props.data.phone)}
-                                {getSection("Location", props.data.location)}
+                                {getSection("Email Address", email)}
+                                {getSection("Phone number", phone)}
+                                {getSection("Location", location)}
                             </Box>
                         </div>
                         <div>
                             <Box display="flex" justifyContent="space-between">
-                            {getSection("Title",props.data.gender)}
+                            {getSection("Title", title)}
                             </Box>
                         </div>
                     </div>
