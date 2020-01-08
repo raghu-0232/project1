@@ -24,12 +24,12 @@ export default class EachClientComponent extends React.Component {
                 />
                 <div className="number-section"> 1</div>
                 <div className="client-more-info-section"> 
-                    <div className="client-name-section"> Client Tech ltd</div>
-                    <div className="client-desc-section"> Client Tech ltd description</div>
+                    <div className="client-name-section"> {this.props.data.company_name}</div>
+                    <div className="client-desc-section"> {this.props.data.company_description}</div>
                     <div className="client-date-time-status"> 
-                        <span className='client-date'> 10 sep 19 </span>
-                        <span className='client-time'> 9:00pm </span>
-                        <span className='client-status'> Activ</span>
+                        <span className='client-date'> {this.props.data.event_date}</span>
+                        <span className='client-time'>  {this.props.data.event_time}</span>
+                        <span className='client-status'> {this.props.data.status}</span>
                     </div>
                 </div>
             </Box>

@@ -14,6 +14,7 @@ class ActiveShiftsList extends Component {
   componentDidMount(){
     getShifts().then( res => {
       this.setState({rowData : res.data.response})
+      this.props.setDataForClientsInfo(res.data.response);
     })
   }
   render() {

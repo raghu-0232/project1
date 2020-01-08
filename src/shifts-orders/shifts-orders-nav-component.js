@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import List from '@material-ui/core/List';
 import Box from '@material-ui/core/Box';
 import ListItem from '@material-ui/core/ListItem';
-import ActiveShiftsComponent from './shifts-orders-active-shifts-component';
-import CompletedComponent from './shifts-orders-completed-component';
+import ActiveShiftsComponent from './active-shifts-component';
+import CompletedShiftsComponent from './completed-shifts-component';
 import './shifts-orders-nav-component.css'
 export default function ShiftsOrdersNavComponent(props) {
     return( 
@@ -17,7 +17,7 @@ export default function ShiftsOrdersNavComponent(props) {
                         </Box>
                     </List>
                         <Route path='/shiftsorders/activeshifts' component={ActiveShiftsComponent} />
-                        <Route path='/shiftsorders/completed' component={CompletedComponent} />                    
+                        <Route path='/shiftsorders/completed' component={CompletedShiftsComponent} />                    
                 </div>
             </Router>
         )

@@ -4,7 +4,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Paper from '@material-ui/core/Paper';
 import ActiveShiftsButtonsComponent from './active-shifts-buttons-component';
- import ShiftsOrdersTableComponent from './active-shifts-table-component';
+ import ActiveShiftsTableComponent from './active-shifts-table-component';
+ import ShiftsOrdersTableComponent from './shifts-orders-table-component';
 import {ActiveShiftsHeaders} from './table-headers/table-headers';
  import {ActiveShiftsData} from './table-headers/table-headers';
  import ShiftViewDialogue from './shift-view-dialogue-component';
@@ -13,8 +14,12 @@ export default class  ActiveShiftsComponent extends React.Component {
         super(props);
         this.state = {
             showShiftVieww: false,
-            selectedRowData: null
+            selectedRowData: null,
+            clientsData: {}
         }
+    }
+    setDataForClientsInfo =(data)=>{
+        this.setState({clientsData: data})
     }
     viewShift = (params) =>{
         this.setState({showShiftVieww: true, selectedRowData: params.data})
@@ -34,8 +39,8 @@ export default class  ActiveShiftsComponent extends React.Component {
             <Paper className="active-employees-container">
                 <div>
                      <ActiveShiftsButtonsComponent />
-                    <ShiftsOrdersTableComponent tableHeaders={[...ActiveShiftsHeaders, this.viewHeader ]} rowData={ActiveShiftsData.response} viewHandler={this.viewShift}/>
-                     {this.state.showShiftVieww? <ShiftViewDialogue data={this.state.selectedRowData} onClose={this.onClose}/> : "" }  
+                    <ActiveShiftsTableComponent tableHeaders={[...ActiveShiftsHeaders, this.viewHeader ]} rowData={[]} viewHandler={this.viewShift} setDataForClientsInfo={this.setDataForClientsInfo}/>
+                     {this.state.showShiftVieww? <ShiftViewDialogue clientsData={this.state.clientsData} data={this.state.selectedRowData} onClose={this.onClose}/> : "" }  
                 </div>
             </Paper>
         )

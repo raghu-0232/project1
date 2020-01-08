@@ -21,11 +21,14 @@ export default class  CompletedComponent extends React.Component {
         super(props);
         this.state = {
             showShiftVieww: false,
-            selectedRowData: null
+            selectedShift: null
         }
     }
     viewShift = (params) =>{
-        this.setState({showShiftVieww: true, selectedShift: params})
+        this.setState({showShiftVieww: true, selectedShift: params.data})
+    }
+    setDataForClientsInfo =(data)=>{
+        this.setState({clientsData: data})
     }
     onClose = () => {
         this.setState({showShiftVieww: false, selectedShift: null})
@@ -42,8 +45,8 @@ export default class  CompletedComponent extends React.Component {
             <Paper className="active-employees-container">
                 <div>
                     <CompletedShiftsButtonsComponent />
-                    <ShiftsOrdersTableComponent tableHeaders={[...CompletedShiftsHeaders, this.viewHeader ]} rowData={CompletedShiftsData.response} viewHandler={this.viewShift}/>
-                    {this.state.showShiftVieww? <ShiftViewDialogue data={this.state.selectedRowData} type="completed-shift" onClose={this.onClose}/> : "" }  
+                    <ShiftsOrdersTableComponent tableHeaders={[...CompletedShiftsHeaders, this.viewHeader ]} rowData={CompletedShiftsData.response} viewHandler={this.viewShift} setDataForClientsInfo={this.setDataForClientsInfo}/>
+                    {this.state.showShiftVieww? <ShiftViewDialogue clientsData={this.state.clientsData} data={this.state.selectedShift} type="completed-shift" onClose={this.onClose}/> : "" }  
                 </div>
             </Paper>
         )

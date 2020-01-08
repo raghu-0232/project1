@@ -11,48 +11,58 @@ import {CompletedShiftViewTableData, ShiftViewTableData} from './table-headers/t
 import ShiftsViewNotificationsComponent from './shifts-view-notifications-component';
 import CompletedShiftViewButtonsComponent from './completed-shift-view-buttons-component';
 import  { useState, useEffect } from 'react';
-import {getShiftViewData} from './actions/shifts-orders-actions'
-var data = {"status":true,"message":"success","response":{"id":"0463924a-50c3-4557-90cb-3f5f3bbe7cb5","roles":["chef","waiter","cloth"],"skill":[{"id":1,"member_id":"0463924a-50c3-4557-90cb-3f5f3bbe7cb5","role_id":"4125b615-b729-4387-ada1-d53e66a2307e","level":"beginner","experience":6,"created_at":"2019-12-19T19:14:35.382Z","updated_at":"2019-12-19T19:14:35.382Z"},{"id":2,"member_id":"0463924a-50c3-4557-90cb-3f5f3bbe7cb5","role_id":"a1984bcd-2f33-4f61-8a16-e5d84b8fff8d","level":"beginner","experience":6,"created_at":"2019-12-21T09:10:30.167Z","updated_at":"2019-12-21T09:10:30.167Z"},{"id":3,"member_id":"0463924a-50c3-4557-90cb-3f5f3bbe7cb5","role_id":"45dd1a3c-088a-470f-843c-ee700f492a48","level":"pro","experience":15,"created_at":"2019-12-21T09:10:30.238Z","updated_at":"2019-12-21T09:10:30.238Z"}],"date_of_birth":"0012-11-12T00:00:00.000Z","information":{"id":"f3d6a7f8-0a69-4345-8b5d-1967859dc19b","gender":"male","street":null,"apartment_number":null,"city":null,"zipcode":null,"country":null,"date_of_birth":"0012-11-12T00:00:00.000Z","work_distance":"123","email":"d.usmanazat@gmail.com","name":"asdfg","ssn_number":"12345","latitude":null,"longitude":null,"member_id":"0463924a-50c3-4557-90cb-3f5f3bbe7cb5","created_at":"2019-12-21T09:11:51.714Z","updated_at":"2019-12-21T09:11:51.714Z","is_verified":false},"marriage_status":null,"availability":null,"dress_code":null,"education":null,"work_experience":null,"address":{"id":"f3d6a7f8-0a69-4345-8b5d-1967859dc19b","gender":"male","street":null,"apartment_number":null,"city":null,"zipcode":null,"country":null,"date_of_birth":"0012-11-12T00:00:00.000Z","work_distance":"123","email":"d.usmanazat@gmail.com","name":"asdfg","ssn_number":"12345","latitude":null,"longitude":null,"member_id":"0463924a-50c3-4557-90cb-3f5f3bbe7cb5","created_at":"2019-12-21T09:11:51.714Z","updated_at":"2019-12-21T09:11:51.714Z","is_verified":false},"email":null,"phone":null,"location":null,"ssn_number":"12345","gender":"male","date_of_joining":null},"total_records":0}
-export default function ShiftViewColumn2Component(props) {
-
-    const [data, setData] = useState({shiftViewData:{}, rowData: [] });
-    //const [rowData, setRowData] = useState([]);
-
-
-   
-    useEffect(() => {
-        getShiftViewData(props.data.id).then( res => {
-            setData ({shiftViewData: res.data.response, rowData: res.data.response.role_details});
-            //setRowData(res.data.response.role_details);
+import {getShiftViewData} from './actions/shifts-orders-actions';
+import AssignComponent from './assign-component'
+export default class ShiftViewColumn2Component extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {shiftViewData : {}, rowData:[], openDialogue: false, assignData:{} }
+    }
+    componentDidMount() {
+        
+        getShiftViewData(this.props.data.id).then( res => {
+            this.setState({shiftViewData: res.data.response, rowData: res.data.response.role_details});
         })
-      
-    }, []);
-   const handleClickOpen = () => {
 
     }
-
-    return( 
+    handleClickOpen = (params) => {
+        
+    }
+    onClose =() => {
+        this.setState({openDialogue: false, assignData: {}})
+    }
+    assignHandler = (params) =>{
+        console.log("assign handler", params.data)
+       this.setState({openDialogue: true, assignData: params.data})
+    }
+    assignHeader = { headerName: "Assign", 
+                        cellRendererFramework: (params)=> {
+                            return <button onClick={ (e) => this.assignHandler(params) }> Assign </button>
+                        },
+                        minWidth:100,
+                        width:100
+                    }
+    render() {
+        return( 
             <Paper className="shift-view-column-2-container">
-                {props.type === "completed-shift" ? <CompletedShiftViewButtonsComponent /> : 
+                {this.props.type === "completed-shift" ? <CompletedShiftViewButtonsComponent /> : 
                     <ShiftViewButtonsComponent />
                 }
-                <ShiftsViewColumn2HeaderComponent  type={props.type} data={data.shiftViewData}/>
-                {props.type === "completed-shift" ?
-                <ShiftsOrdersTableComponent tableHeaders={CompletedshiftViewTableHeaders} data={data.shiftViewData} rowData={data.rowData} />
-                                 : 
-                <ShiftsOrdersTableComponent tableHeaders={shiftViewTableHeaders} rowData={data.rowData} />
-
+                <ShiftsViewColumn2HeaderComponent  type={this.props.type} data={this.state.shiftViewData}/>
+                {this.props.type === "completed-shift" ?
+                <ShiftsOrdersTableComponent tableHeaders={CompletedshiftViewTableHeaders} data={this.state.shiftViewData} rowData={this.state.rowData} />
+                :<ShiftsOrdersTableComponent tableHeaders={[...shiftViewTableHeaders, this.assignHeader]} rowData={this.state.rowData} />
                 }
 
-                {props.type === "completed-shift" && (
+                {this.props.type === "completed-shift" && (
                     <div className="completed-shifts-view-buttons-sec-2">
-                        <Button className="completed-shift-send-invoice" variant="contained" color="primary"  onClick={handleClickOpen}>
+                        <Button className="completed-shift-send-invoice" variant="contained" color="primary"  onClick={this.handleClickOpen}>
                             Edit Invinvoice
                         </Button>
-                        <Button className="completed-shift-record-payment-button" variant="contained" color="primary"  onClick={handleClickOpen}>
+                        <Button className="completed-shift-record-payment-button" variant="contained" color="primary"  onClick={this.handleClickOpen}>
                             Download PDF
                         </Button>
-                        <Button className="completed-shift-download-timesheet-button" variant="contained" color="primary" onClick={handleClickOpen}>
+                        <Button className="completed-shift-download-timesheet-button" variant="contained" color="primary" onClick={this.handleClickOpen}>
                             Send invoce
                         </Button>
                         <span> Total : $112</span>
@@ -69,7 +79,11 @@ export default function ShiftViewColumn2Component(props) {
                         <div className="attachment-section"> Attachment Required </div>
                      </Box>
                 </div>
-            {props.type !== "completed-shift" && <ShiftsViewNotificationsComponent /> }
+            {this.props.type !== "completed-shift" && <ShiftsViewNotificationsComponent /> }
+
+                <AssignComponent onClose={this.onClose} assignData={this.state.assignData} openDialogue={this.state.openDialogue}/>
+
             </Paper>
         )
+    }
 }

@@ -15,11 +15,10 @@ class ShiftsOrdersTableComponent extends Component {
     return (
       <div className="ag-theme-balham" style={ {height: '200px', width: '100%'} }>
         <AgGridReact
-            columnDefs={this.state.columnDefs}
-            rowData={this.state.rowData}
+            columnDefs={this.props.tableHeaders}
+            rowData={this.props.rowData}
             pagination={true}
-            >
-            
+            >            
         </AgGridReact>
       </div>
     );
