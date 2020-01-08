@@ -12,7 +12,7 @@
     "@testing-library/user-event": "^7.2.1",
     "ag-grid-community": "^22.1.1",
     "ag-grid-react": "^22.1.1",
-    "axios": "^0.19.0",
+    "axios": "^0.19.1",
     "date-fns": "^2.8.1",
     "i": "^0.3.6",
     "npm": "^6.13.4",
@@ -24,8 +24,8 @@
     "styled-components": "^4.4.1"
   },
   "scripts": {
-    "start": "react-scripts --max_old_space_size=4096 start",
-    "build": "react-scripts --max_old_space_size=4096 build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
