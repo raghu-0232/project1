@@ -8,7 +8,7 @@ export default function DashboardComponent(){
     return( 
     <div className="dashboard-container">
         <div className="title"> 
-            <span> Dashboard </span> 
+            <span> Dashboard  hello</span> 
             <span> An overview of your activity</span>
         </div>
         <Stats />
