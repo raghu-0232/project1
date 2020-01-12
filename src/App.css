@@ -4,3 +4,13 @@
 .MuiTypography-body1{
   font-size: 12px !important;
 }
+
+.MuiButton-contained{
+  box-shadow: none !important;
+}
+.MuiButton-contained.MuiButton-containedPrimary{
+  background: #ED3B41;
+}
+.MuiButton-contained.MuiButton-containedPrimary:hover{
+  background: #d8272d;
+}

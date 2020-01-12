@@ -11,9 +11,9 @@ export default function ShiftsOrdersNavComponent(props) {
             <Router>
                 <div className="shifts-orders-navigation-container">
                     <List className="navbar-nav mr-auto">
-                        <Box display="flex" p={1} justifyContent="space-between" className="shifts-orders-nav-links" bgcolor="background.paper">
-                            <ListItem><Link to={'/shiftsorders/activeshifts'} className="nav-link"> Active Shifts </Link></ListItem>
-                            <ListItem><Link  to={'/shiftsorders/completed'} className="nav-link">Completed Shifts</Link></ListItem>
+                        <Box display="flex" p={1} justifyContent="flex-start" className="shifts-orders-nav-links" bgcolor="background.paper">
+                            <Link to={'/shiftsorders/activeshifts'} className="nav-link"> Active Shifts </Link>
+                            <Link  to={'/shiftsorders/completed'} className="nav-link">Completed Shifts</Link>
                         </Box>
                     </List>
                         <Route path='/shiftsorders/activeshifts' component={ActiveShiftsComponent} />

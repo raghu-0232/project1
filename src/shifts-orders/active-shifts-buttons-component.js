@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import styled from 'styled-components';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Paper from '@material-ui/core/Paper';
@@ -31,6 +32,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+
+const StyledNav = styled.div`
+        
+`;
+ 
 
 export default class ActiveShiftsButtonsComponent extends React.Component {
     constructor(props){
@@ -67,7 +73,6 @@ export default class ActiveShiftsButtonsComponent extends React.Component {
     }
     render(){
         return( 
-            <Paper >
                 <Box display="flex" className="active-shifts-buttons-container">
                     <div className="calender-controls">
                     <Box display="flex" >
@@ -101,7 +106,7 @@ export default class ActiveShiftsButtonsComponent extends React.Component {
                        </Box>
                     </div>
                     <div className="other-controls">
-                        <FormControl className="select-dropdown-conatainer">
+                        <FormControl className="select-dropdown-conatainer lg-dropdown">
                             <InputLabel id="select-label">Type</InputLabel>
                             <Select
                             labelId="demo-simple-select-label"
@@ -123,12 +128,11 @@ export default class ActiveShiftsButtonsComponent extends React.Component {
                         <IconButton type="submit"  aria-label="search" onClick={this.hanldeSearch}>
                             <SearchIcon />
                         </IconButton>
-                        <Button variant="contained" color="primary" className="add-shift" onClick={this.handleClickOpen}>
+                        <Button variant="contained" color="primary" onClick={this.handleClickOpen}>
                             + Add Shift
                         </Button>
                     </div>
                 </Box>
-            </Paper>
         )
     }
     

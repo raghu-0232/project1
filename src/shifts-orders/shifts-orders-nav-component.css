@@ -1,13 +1,27 @@
 
+.shifts-orders-nav-links{
+    border-radius: 10px;
+    box-shadow: 0px 3px 12px #ED3E430A;
+    padding: 0px 0px 0px 10px !important;
+}
 .shifts-orders-nav-links .nav-link{
-    text-decoration: unset;
+    /* text-decoration: unset;
     margin-right: 10px;
     padding:4px 2px 8px 2px !important;
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid white; */
+    padding: 15px 20px;
+    text-decoration: none;
+    border-bottom: 3px solid #fff;
+    color: #9F9FA0;
+    font-weight: bold;
 }
 .shifts-orders-nav-links .nav-link:hover, .shifts-orderss-nav-links .nav-link.active{
     border-bottom: 3px solid red;
-    
+    color: #ED3B41;
+}
+.shifts-orders-nav-links .nav-link.active{
+    border-bottom: 3px solid red;
+    color: #ED3B41;
 }
 .shifts-orders-navigation-container{    
     padding: 5px;

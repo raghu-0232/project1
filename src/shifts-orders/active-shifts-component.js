@@ -39,7 +39,7 @@ export default class  ActiveShiftsComponent extends React.Component {
             <Paper className="active-employees-container">
                 <div>
                      <ActiveShiftsButtonsComponent />
-                    <ActiveShiftsTableComponent tableHeaders={[...ActiveShiftsHeaders, this.viewHeader ]} rowData={[]} viewHandler={this.viewShift} setDataForClientsInfo={this.setDataForClientsInfo}/>
+                    <ActiveShiftsTableComponent className="hello" tableHeaders={[...ActiveShiftsHeaders, this.viewHeader ]} rowData={[]} viewHandler={this.viewShift} setDataForClientsInfo={this.setDataForClientsInfo}/>
                      {this.state.showShiftVieww? <ShiftViewDialogue clientsData={this.state.clientsData} data={this.state.selectedRowData} onClose={this.onClose}/> : "" }  
                 </div>
             </Paper>

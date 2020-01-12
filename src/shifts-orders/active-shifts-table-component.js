@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 import {getShifts} from './actions/shifts-orders-actions'
+import LgTable from '../LgTable';
 class ActiveShiftsList extends Component {
   constructor(props) {
     super(props);
@@ -19,14 +20,16 @@ class ActiveShiftsList extends Component {
   }
   render() {
     return (
-      <div className="ag-theme-balham" style={ { height: '200px', width: '100%'} }>
-        <AgGridReact
+      <LgTable>
+        <div className="ag-theme-balham" style={{ height: '200px', width: '100%' }}>
+          <AgGridReact
             columnDefs={this.state.columnDefs}
             rowData={this.state.rowData}
             pagination={true}
-            >
-        </AgGridReact>
-      </div>
+          >
+          </AgGridReact>
+        </div>
+      </LgTable>
     );
   }
 }

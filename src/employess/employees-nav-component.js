@@ -14,10 +14,10 @@ export default function EmployeesNavComponent(props) {
             <Router>
             <div className="employees-navigation-container">
                 <List className="navbar-nav mr-auto">
-                    <Box display="flex" p={1} justifyContent="space-between" className="employee-nav-links" bgcolor="background.paper">
-                        <ListItem><Link to={'/employees/activeemployees'} className="nav-link"> Active Employees </Link></ListItem>
-                        <ListItem><Link  to={'/employees/awaitingapprovals'} className="nav-link">Awaiting Approvals</Link></ListItem>
-                        <ListItem><Link to={'/employees/inactiveemployess'} className="nav-link">Inactive Employees</Link></ListItem>
+                    <Box display="flex" p={1} justifyContent="flex-start" className="employee-nav-links" bgcolor="background.paper">
+                        <Link to={'/employees/activeemployees'} className="nav-link"> Active Employees </Link>
+                        <Link  to={'/employees/awaitingapprovals'} className="nav-link">Awaiting Approvals</Link>
+                        <Link to={'/employees/inactiveemployess'} className="nav-link">Inactive Employees</Link>
                     </Box>
                 </List>
                 
