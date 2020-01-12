@@ -1,0 +1,31 @@
+
+.generate-invoice-dialogue-content label{
+    display: inline-block;
+    min-width: 100px;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+.generate-invoice-header {
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid grey;
+}
+.center-section {
+    margin: 20px 0px;
+}
+.date-label{
+    vertical-align: bottom;
+}
+.generate-invoice-buttons button{
+    margin: 20px;
+   
+}
+.generate-invoice-buttons{
+   text-align: right;
+}
+.order-name-field-section, .shift-number-field-section, .cafteria-code-field-section{
+    margin-top: 35px;
+}
+.generate-invoice-dialogue-content input{
+    min-width: 150px; 
+}

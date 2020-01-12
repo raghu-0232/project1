@@ -5,10 +5,10 @@ export const  ActiveShiftsHeaders = [
                     <span>${params.rowIndex +1 }</span>
                 </div>`
     }},
-    { headerName: "Company Name", field: "companyName", minWidth:200, width:200  },
-    { headerName: "Events/Shift Name", field: "shiftName", minWidth:200 , width:200},
-    { headerName: "No of Gigs", field: "noOfGigs", minWidth:100, width:100 },
-    { headerName: "start Time", field: "startTime", minWidth:100, width:100 },
+    { headerName: "Company Name", field: "company_name", minWidth:200, width:200  },
+    { headerName: "Events/Shift Name", field: "event_name", minWidth:200 , width:200},
+    { headerName: "No of Gigs", field: "gigs", minWidth:100, width:100 },
+    { headerName: "start Time", field: "event_date", minWidth:100, width:100 },
     { headerName: "Satus", field: "status", minWidth:100, width:100 },
     { headerName: "Location", field: "location", minWidth:100, width:100 },    
 ];
@@ -29,10 +29,10 @@ export const  CompletedShiftsHeaders =[
 ];
 
 export const  shiftViewTableHeaders =[
-    { headerName: "Requirement",  field:'requirement', minWidth:100, width:100 },
-    { headerName: "People needed", field: "peopleNeeded", minWidth:200, width:200  },
-    { headerName: "Time Clockin", field: "clockIn", minWidth:200 , width:200},
-    { headerName: "Time Clockout", field: "clockOut", minWidth:100, width:100 },
+    { headerName: "Requirement",  field:'role', minWidth:100, width:100 },
+    { headerName: "People needed", field: "count", minWidth:200, width:200  },
+    { headerName: "Start time", field: "start_time", minWidth:200 , width:200},
+    { headerName: "End Time", field: "end_time", minWidth:100, width:100 },
     { headerName: "Price/Person", field: "price", minWidth:100, width:100 },
     { headerName: "Total", field: "total", minWidth:100, width:100 },
 ];
@@ -45,6 +45,28 @@ export const  CompletedshiftViewTableHeaders =[
     { headerName: "Break-in", field: "total", minWidth:100, width:100 },
     { headerName: "Break-out", field: "total", minWidth:100, width:100 },
     { headerName: "Break-time", field: "total", minWidth:100, width:100 },
+
+];
+export const  GenerateInvoiceHeaders =[
+    { headerName: "S.no",  minWidth:100, width:100, cellRenderer: (params)=> {
+        return `<div>
+                    <span>${params.rowIndex +1 }</span>
+                </div>`
+   
+    }},
+    { headerName: "Employee Name", field: "peopleNeeded", minWidth:200, width:200  },
+    { headerName: "Employee Name", field: "employeeName", minWidth:200 , width:200},
+    { headerName: "Role", field: "role", minWidth:100, width:100 },
+    { headerName: "Clockin", field: "clockin", minWidth:100, width:100 },
+    { headerName: "Clockout", field: "clockout", minWidth:100, width:100 },
+    { headerName: "Break-in", field: "breakin", minWidth:100, width:100 },
+    { headerName: "Break-out", field: "breakout", minWidth:100, width:100 },
+    { headerName: "Break-time", field: "total", minWidth:100, width:100 },
+    { headerName: "work-hours", field: "work_hours", minWidth:100, width:100 },
+    { headerName: "Over-time", field: "over_time", minWidth:100, width:100 },
+    { headerName: "Per/Hr", field: "perhr", minWidth:100, width:100 },
+    { headerName: "Total", field: "total", minWidth:100, width:100 },
+
 
 ];
 
