@@ -12,7 +12,6 @@ import Paper from '@material-ui/core/Paper';
 import CompletedShiftsButtonsComponent from './completed-shifts-buttons-component';
 import ShiftsOrdersTableComponent from './active-shifts-table-component';
 import {CompletedShiftsHeaders} from './table-headers/table-headers';
-import {CompletedShiftsData} from './table-headers/table-headers';
 import ShiftViewDialogue from './shift-view-dialogue-component';
 
 
@@ -45,7 +44,7 @@ export default class  CompletedComponent extends React.Component {
             <Paper className="active-employees-container">
                 <div>
                     <CompletedShiftsButtonsComponent />
-                    <ShiftsOrdersTableComponent tableHeaders={[...CompletedShiftsHeaders, this.viewHeader ]} rowData={CompletedShiftsData.response} viewHandler={this.viewShift} setDataForClientsInfo={this.setDataForClientsInfo}/>
+                    <ShiftsOrdersTableComponent tableHeaders={[...CompletedShiftsHeaders, this.viewHeader ]} viewHandler={this.viewShift} setDataForClientsInfo={this.setDataForClientsInfo}/>
                     {this.state.showShiftVieww? <ShiftViewDialogue clientsData={this.state.clientsData} data={this.state.selectedShift} type="completed-shift" onClose={this.onClose}/> : "" }  
                 </div>
             </Paper>
