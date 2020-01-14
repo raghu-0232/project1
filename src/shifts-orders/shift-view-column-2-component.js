@@ -12,6 +12,7 @@ import ShiftsViewNotificationsComponent from './shifts-view-notifications-compon
 import CompletedShiftViewButtonsComponent from './completed-shift-view-buttons-component';
 import { useState, useEffect } from 'react';
 import { getShiftViewData } from './actions/shifts-orders-actions';
+
 export default class ShiftViewColumn2Component extends React.Component {
     constructor(props) {
         super(props);
@@ -28,10 +29,12 @@ export default class ShiftViewColumn2Component extends React.Component {
 
     }
     render() {
+        let id = this.state.shiftViewData && this.state.shiftViewData.id; 
+        let shift_date=this.state.shiftViewData && this.state.shiftViewData.shift_date;
         return (
             <Paper className="shift-view-column-2-container">
                 {this.props.type === "completed-shift" ? <CompletedShiftViewButtonsComponent /> :
-                    <ShiftViewButtonsComponent />
+                    <ShiftViewButtonsComponent  id={id} date={shift_date}/>
                 }
                 <ShiftsViewColumn2HeaderComponent type={this.props.type} data={this.state.shiftViewData} />
                 {this.props.type === "completed-shift" ?

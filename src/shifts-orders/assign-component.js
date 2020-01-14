@@ -23,31 +23,35 @@ import Avatar from '@material-ui/core/Avatar';
 import FaceIcon from '@material-ui/icons/Face';
 import Checkbox from '@material-ui/core/Checkbox';
 import Button from '@material-ui/core/Button';
+import {assignMembers} from './actions/shifts-orders-actions';
 
 export default class AssignComponent extends React.Component {
 	constructor(props) {
-		super(props);
-		console.log("data from assign", this.props)
+		super(props)
 		this.state = {
             open: props.openDialogue,
-			currentTab: "assigned_members",
-			selectedList : []
+			currentTab: "assigned_members"
+			//selectedList : []
 		}
-		this.selectedEmployeesList = []
+		this.selectedMemberList = [];
+		this.selectedShiftApplications = [];
 	}
 
-	handleChange = (e) => {
-		console.log(e.target.id)
-		if(e.target.checked && !this.selectedEmployeesList.includes(e.target.id)){
-			this.selectedEmployeesList.push(e.target.id)
-		}else if(!e.target.checked && this.selectedEmployeesList.includes(e.target.id)){
-			let index = this.selectedEmployeesList.indexOf(e.target.id);
-			this.selectedEmployeesList.splice(index, 1);
+	handleChange = (member,type) => {
+		if(type === 'inhouse_members' || type === 'previous_members'){
+			this.selectedMemberList.push(member.id)
 		}
-		console.log(this.selectedEmployeesList);
+		if(type === 'assigned_members' || type === 'applied_members'){
+			this.selectedShiftApplications.push(member.id)
+		}
 	}
-	assignEmployees = (e) => {
-
+	assignEmployees = () => {
+		console.log(this.props.assignData)
+		alert(this.props.assignData&& this.props.assignData.shift_id)
+		let data = { member_id:this.selectedMemberList,shift_application_id:this.selectedShiftApplications, shift_id : this.props.assignData && this.props.assignData.shift_id}
+		assignMembers(data).then((response)=>{
+			console.log(response)
+		})
 	}
 	handleClose = () => {
 		this.setState({ open: true });
@@ -55,7 +59,34 @@ export default class AssignComponent extends React.Component {
     };
     setTab = (type) => {
         this.setState({ currentTab: type });
-    }
+	}
+	renderMembers = (member) =>{
+		let members = this.props.assignData && this.props.assignData[member];
+		console.log(members)
+		return (		
+			<div>
+			{ members && members.map((item,key) => { 
+				return <Box display="flex" className="each-employee-section" justifyContent="space-between" key='key'>
+					<FaceIcon />
+					<div>{item.name}</div>
+					{item.role_details.map((value,key) => {
+						return <div className="roleDetails">
+							<div>{value.role_name}</div>
+							<div>{value.experience}</div>
+							<div>{value.level}</div>
+						</div>
+					})}
+					{/* <div>{item.role_name}</div> */}
+					<Checkbox
+					onChange={() => {this.handleChange(item,member)}}
+					value="primary"
+					inputProps={{ 'aria-label': 'primary checkbox' }}
+					/>
+				</Box>
+			})}
+			</div>
+		)
+	}
 	render() {
 		return (
 			<div>
@@ -69,35 +100,36 @@ export default class AssignComponent extends React.Component {
 					<DialogContent>
 						<List className="navbar-nav mr-auto">
 							<Box display="flex" p={1} justifyContent="space-between" className="employee-nav-links" bgcolor="background.paper">
-								<ListItem onClick={()=> {this.setTab("assigned_members")} }>Previously Worked Employees</ListItem>
-								<ListItem onClick={()=> {this.setTab("inhouse_members")} }>InHouseEmployees</ListItem>
+								{/* <ListItem onClick={()=> {this.setTab("nearByEmployees")} }>Nearby Employees</ListItem> */}
+								<ListItem onClick={()=> {this.setTab("assigned_members")} }>Assigned Employees</ListItem>
 								<ListItem onClick={()=> {this.setTab("applied_members")} }>Applied Employees</ListItem>
-
+								<ListItem onClick={()=> {this.setTab("previous_members")} }>Previously Worked Employees</ListItem>
+								<ListItem onClick={()=> {this.setTab("inhouse_members")} }>In-House Employees</ListItem>
 								{/* <ListItem onClick={()=> {this.setTab("applied_members")} }>Applied Employees</ListItem> */}
 							</Box>
 						</List>
-						<Box>
+							{/* {
+								this.props.assignData[this.state.currentTab].map( item => {
+									return (
+										<Chip className="each-notification" icon={<FaceIcon />} label="Deletable primary notification. for more details please contact in person" onDelete={this.handleDelete} color="" >
+										<div> hello</div>
+			
+										</Chip>
+									)
+								} ) 
+							} */}
+                           {/* <Chip className="each-notification" icon={<FaceIcon />} label="Deletable primary notification. for more details please contact in person" onDelete={this.handleDelete} color="" >
+								<div> hello</div>
+
+								</Chip><Chip className="each-notification" icon={<FaceIcon />} label="Deletable primary notification. for more details please contact in person" onDelete={this.handleDelete} color="" >
+								<div> hello</div>
+							</Chip> */}
+							
 							<Box display="flex" className="all-employee-sections-container" justifyContent="space-between">
-							{ this.props.assignData && this.props.assignData[this.state.currentTab].map( item => { return (<div>
-								<Box display="flex" className="each-employee-section" justifyContent="space-between">
-									<FaceIcon />
-									<div>
-										{item.name}
-										{item.role_name}
-										{item.member_id}
-									</div>
-									<div>
-									<Checkbox
-										id={item.member_id ? item.member_id : item.id }
-										onChange={this.handleChange}
-										value="primary"
-										inputProps={{ 'aria-label': 'primary checkbox' }}
-									/>
-									</div>
-								</Box>
-								</div>)})}
+								{this.state.currentTab === 'assigned_members' && this.renderMembers('assigned_members')}
+								{this.state.currentTab === 'previous_members' && this.renderMembers('previous_members')}
+								{this.state.currentTab === 'inhouse_members' && this.renderMembers('inhouse_members')}
 							</Box>
-						</Box>
 						<Button variant="contained" className="company-view-actions-save" color="primary" onClick={this.assignEmployees}> Assign </Button>
                         <Button variant="contained" className="company-view-actions-cancel" onClick={this.handleClose}>  Cancel </Button>
 					</DialogContent>

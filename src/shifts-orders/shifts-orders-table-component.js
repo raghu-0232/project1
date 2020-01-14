@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 import AssignComponent from './assign-component'
-import {shiftViewTableData} from './table-headers/table-headers'
+
 class ShiftsOrdersTableComponent extends Component {
 	constructor(props) {
 		super(props);
@@ -11,13 +11,13 @@ class ShiftsOrdersTableComponent extends Component {
 			columnDefs: props.tableHeaders,
 			rowData: props.rowData,
 			openDialogue: false,
-			assignData: ""
+			assignData: {}
 		}
 		// this.assignHeader = this.assignHeader.bind(this);
 	}
 
     onClose = () => {
-        this.setState({ openDialogue: false, assignData: "" })
+        this.setState({ openDialogue: false, assignData: {} })
 	}
 	
 	assignHandler = (params) => {
@@ -38,7 +38,7 @@ class ShiftsOrdersTableComponent extends Component {
 			<div className="ag-theme-balham" style={{ height: '200px', width: '100%' }}>
 				<AgGridReact
 					columnDefs={[...tableHeaders,this.assignHeader]}
-					rowData={shiftViewTableData.response.role_details}
+					rowData={this.props.rowData}
 					pagination={true}
 				>
 				</AgGridReact>

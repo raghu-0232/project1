@@ -6,6 +6,7 @@ import ClientListComponent from './client-list-component';
 import Button from '@material-ui/core/Button';
 import RecordPaymentComponent from './record-payment-component';
 import GenerateInvoiceComponent from './generate-invoice-component';
+import { postShift } from './actions/shifts-orders-actions';
 
 export default class ShiftViewButtonsComponent extends React.Component {
     constructor(props) {
@@ -17,9 +18,12 @@ export default class ShiftViewButtonsComponent extends React.Component {
 		// this.assignHeader = this.assignHeader.bind(this);
 	}
 
-    handleClickOpen = () => {
-
-    }
+    postShift = () => {
+        //console.log(this.props.shift_date,this.props.id)
+        postShift(this.props.date,this.props.id).then((response)=>{
+            console.log(response)
+        })
+    }   
     recordPayment = () => {
         this.setState({openDialogue: true})
     }
@@ -41,7 +45,7 @@ export default class ShiftViewButtonsComponent extends React.Component {
                             <Button className="shift-edit" variant="contained" color="primary"  onClick={this.handleClickOpen}>
                                 Edit
                             </Button>
-                            <Button className="shift-post-a-job-button" variant="contained" color="primary"  onClick={this.handleClickOpen}>
+                            <Button className="shift-post-a-job-button" variant="contained" color="primary"  onClick={this.postShift}>
                                 Post A Job
                             </Button>
                             <Button className="shift-assign-button" variant="contained" color="primary"  onClick={this.handleClickOpen}>
